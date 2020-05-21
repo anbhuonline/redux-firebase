@@ -13,7 +13,8 @@ class Dashboard extends Component {
       <div className="dashboard container">
         <div className="row">
           <div className="col s12 m6">
-            <ProjectList projects={projects} key={projects.id} />
+            <ProjectList projects={projects} />                        
+            {/* <ProjectList projects={projects} key={projects.id} />                         */}
           </div>
 
           <div className="col s12 m5 offset-m1">
@@ -28,11 +29,11 @@ class Dashboard extends Component {
 const mapStatsToProps = (state) => {
   console.log(state);
   return {
-    projects: state.project.projects,
+    projects: state.firestore.ordered.projects,
   };
 };
 
 export default compose(
   connect(mapStatsToProps),
-  firestoreConnect([{ collection: "projects" }])
+  firestoreConnect([{ collection: "projects", orderBy: ['createdAt', 'desc'] }])
 )(Dashboard);
