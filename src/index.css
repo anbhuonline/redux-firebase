@@ -9,7 +9,7 @@ body {
   background: url(/img/img.png) no-repeat;
   background-size: 100%;
   background-position: bottom;
-  background-color: cadetblue;
+  background-color: #d2b1ec;
   min-height: 100%;
 }
 form {
